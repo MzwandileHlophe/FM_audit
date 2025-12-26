@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FM Growth Labs | Rapid Business Acceleration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --secondary: #7000ff;
+            --bg-dark: #0a0a0c;
+            --card-bg: #16161a;
+            --text-light: #f8f9fa;
+            --text-dim: #a0a0a5;
+            --accent-gradient: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 12, 0.98);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 150px; 
+            width: auto;
+            display: block;
+            margin-left: -15px;
+        }
+
+        .nav-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        .lang-selector span {
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 2px 5px;
+        }
+
+        .lang-selector span:hover, .lang-selector span.active {
+            color: var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .btn-partner {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Hero with Fully Visible Background Image */
+        .hero {
+            position: relative;
+            padding: 140px 0;
+            text-align: center;
+            /* Gradient opacity reduced to 0.1 for full image visibility */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://i.postimg.cc/Yq7c6vmL/FM-Growth-Labs-Background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Added shadow for text readability on bright image */
+        }
+
+        .motto {
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .motto i { font-style: italic; text-transform: lowercase; }
+
+        .calculator { background: #1a1a20; padding: 50px; border-radius: 20px; margin: 60px 0; border: 1px solid var(--secondary); }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        select, input { 
+            width: 100%; 
+            padding: 12px; 
+            background: #000; 
+            border: 1px solid #333; 
+            color: #fff; 
+            border-radius: 5px; 
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .result-box { background: #0a0a0c; padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #222; }
+        .result-val { font-size: 2.5rem; color: var(--primary); font-weight: bold; }
+
+        .testimonials { padding: 60px 0; background: rgba(255,255,255,0.02); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .test-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border-left: 4px solid var(--secondary); }
+
+        .mega-footer { background: #000; padding: 80px 0 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; }
+        
+        .contact-info { background: #111; padding: 30px; border-radius: 10px; margin-top: 40px; border: 1px solid #222; }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 90px; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .nav-actions { align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#">
+                <img src="https://i.postimg.cc/tT4b9hSH/FM-Growth-Labs.png" alt="FM Growth Labs" class="logo-img">
+            </a>
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <span class="active" onclick="setLanguage('en')">English</span>
+                    <span onclick="setLanguage('ss')">SiSwati</span>
+                    <span onclick="setLanguage('sw')">Swahili</span>
+                </div>
+                <a href="#audit" class="btn-partner" data-key="partnerBtn">Partner with us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="motto" id="motto-text">Technology-powered acceleration <i>with</i> a human touch</span>
+            <h1 id="hero-title">Scale at the Speed of <span style="color: var(--primary)">Innovation.</span></h1>
+            <p id="hero-desc">The tech-driven front face of your business. We don't just find leads—we close them.</p>
+        </div>
+    </header>
+
+    <section id="audit" class="container">
+        <div class="calculator" style="border-color: var(--primary);">
+            <div class="calc-title">
+                <h2 data-key="auditTitle">Request a Growth Audit</h2>
+                <p data-key="auditDesc">Complete this brief diagnostic so we can prepare your custom acceleration roadmap.</p>
+            </div>
+            <form onsubmit="event.preventDefault(); alert('Audit request received! We will contact you within 24 hours.');">
+                <div class="calc-grid">
+                    <div>
+                        <div class="input-group">
+                            <label data-key="labelRevRange">Current Monthly Revenue (E)</label>
+                            <select id="revRange" required>
+                                <option value="0-50k">E0 - E50,000</option>
+                                <option value="50k-200k">E50,000 - E200,000</option>
+                                <option value="200k+">E200,000+</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label data-key="labelEmployees">Current Number of Employees</label>
+                            <select id="employeeCount" required>
+                                <option value="1-5">1 - 5</option>
+                                <option value="6-20">6 - 20</option>
+                                <option value="21-50">21 - 50</option>
+                                <option value="50+">50+</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label data-key="labelBottleneck">Biggest Growth Bottleneck</label>
+                            <select id="bottleneck" required>
+                                <option value="leads" data-key="optLeads">Finding New Leads</option>
+                                <option value="closing" data-key="optClosing">Closing Sales / Conversions</option>
+                                <option value="visibility" data-key="optVisibility">Online Visibility & Brand</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; justify-content:center;">
+                        <label data-key="labelEmail">Business Email</label>
+                        <input type="email" placeholder="ceo@company.com" required>
+                        <button type="submit" class="btn-partner" style="width:100%; margin-top:20px; padding:15px;" data-key="btnAudit">Analyze My Hidden Profits</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="calculator" class="container">
+        <div class="calculator">
+            <div class="calc-title">
+                <h2 data-key="calcTitle">Growth Potential Calculator</h2>
+                <p data-key="calcDesc">Estimate how much FM Growth Labs can add to your bottom line sales.</p>
+            </div>
+            <div class="calc-grid">
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <label data-key="labelRev">Current Monthly Revenue (E)</label>
+                        <input type="number" id="revenue" value="50000" oninput="calculate()">
+                    </div>
+                    <div>
+                        <label data-key="labelGrowth">Desired Growth (%)</label>
+                        <input type="number" id="growth" value="25" oninput="calculate()">
+                    </div>
+                </div>
+                <div class="result-box">
+                    <p data-key="resMonthly">Potential Monthly Increase</p>
+                    <div class="result-val" id="increase">E12,500</div>
+                    <p style="margin-top:20px" data-key="resAnnual">Projected Annual Impact</p>
+                    <div class="result-val" id="annual" style="font-size: 1.8rem; color: var(--secondary);">E150,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial-grid">
+                <div class="test-card">
+                    <h4>Safety Squad</h4>
+                    <p id="test-safetysquad">"FM Growth Labs revolutionized our lead acquisition and visibility across Ireland."</p>
+                    <a href="https://safetysquad.ie" target="_blank" style="color:var(--primary)">Visit safetysquad.ie &rarr;</a>
+                </div>
+                <div class="test-card">
+                    <h4>MMM Platforms Global</h4>
+                    <p id="test-mmm">"Accelerating global growth through precision niche identification and sales automation."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mega-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-key="locHeader">Locations</h4>
+                    <ul>
+                        <li><a href="#">Europe</a></li>
+                        <li><a href="#">Africa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="resHeader">Resources</h4>
+                    <ul>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Information For Countries & Cities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="compHeader">Company</h4>
+                    <ul>
+                        <li><a href="#">About FM Growth Labs</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">For Business</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="legalHeader">Legal</h4>
+                    <ul>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Privacy Commitment</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-info" id="contact">
+                <h4 data-key="contactHeader">Contact Business Development</h4>
+                <p><strong>Phone:</strong> +268 7 62 44 989</p>
+                <p><strong>Email:</strong> <a href="mailto:fisilehlophe@icloud.com" style="color:var(--text-light); text-decoration:none;">fisilehlophe@icloud.com</a></p>
+                <p><strong>Address:</strong> Corner Plaza, Ezulwini</p>
+            </div>
+
+            <div style="text-align: center; color: #444; margin-top: 40px; padding-top: 20px; border-top: 1px solid #222;">
+                <p>&copy; 2025 FM Growth Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const translations = {
+            en: {
+                motto: "Technology-powered acceleration <i>with</i> a human touch",
+                heroTitle: "Scale at the Speed of <span style='color: #00f2ff'>Innovation.</span>",
+                heroDesc: "The tech-driven front face of your business. We don't just find leads—we close them.",
+                partnerBtn: "Partner with us",
+                auditTitle: "Request a Growth Audit",
+                auditDesc: "Complete this brief diagnostic so we can prepare your custom acceleration roadmap.",
+                labelRevRange: "Current Monthly Revenue (E)",
+                labelEmployees: "Current Number of Employees",
+                labelBottleneck: "Biggest Growth Bottleneck",
+                optLeads: "Finding New Leads",
+                optClosing: "Closing Sales / Conversions",
+                optVisibility: "Online Visibility & Brand",
+                labelEmail: "Business Email",
+                btnAudit: "Analyze My Hidden Profits",
+                calcTitle: "Growth Potential Calculator",
+                calcDesc: "Estimate how much FM Growth Labs can add to your bottom line sales.",
+                labelRev: "Current Monthly Revenue (E)",
+                labelGrowth: "Desired Growth (%)",
+                resMonthly: "Potential Monthly Increase",
+                resAnnual: "Projected Annual Impact",
+                locHeader: "Locations",
+                resHeader: "Resources",
+                compHeader: "Company",
+                legalHeader: "Legal",
+                contactHeader: "Contact Business Development",
+                testSafety: '"FM Growth Labs revolutionized our lead acquisition and visibility across Ireland."',
+                testMMM: '"Accelerating global growth through precision niche identification and sales automation."'
+            },
+            ss: {
+                motto: "Kukhula lokuphethwe ngetheknoloji <i>nge</i> kutfintfwa kwemuntfu",
+                heroTitle: "Khula ngelizinga le <span style='color: #00f2ff'>Kusungula.</span>",
+                heroDesc: "Bususo betheknoloji bebhizinisi yakho. Asigcini ngekutfolela batsengi—siyawuvala nemadili.",
+                partnerBtn: "Bambisana natsi",
+                auditTitle: "Cela kucwaningwa kwekukhula",
+                auditDesc: "Gcwalisa loku kute sitilungiselele indlela yakho yekukhula.",
+                labelRevRange: "Ingeniso yenyanga (E)",
+                labelEmployees: "Linani lebalingani labakhona",
+                labelBottleneck: "Sihibe sekukhula",
+                optLeads: "Kutfola batsengi labasha",
+                optClosing: "Kuvala ngetisutfu",
+                optVisibility: "Kubonakala ku-inthanethi",
+                labelEmail: "I-imeyili yebhizinisi",
+                btnAudit: "Cwaninga inzuzo yami lefihlakele",
+                calcTitle: "Sibaluli sekukhula lokungenteka",
+                calcDesc: "Linganisela kutsi FM Growth Labs ingangeza malini ekutsengiseni kwakho.",
+                labelRev: "Ingeniso yenyanga (E)",
+                labelGrowth: "Kukhula lokufisako (%)",
+                resMonthly: "Kwengetelelo kwenyanga",
+                resAnnual: "Kukhula kwemnyaka",
+                locHeader: "Tindzawo",
+                resHeader: "Tinsita",
+                compHeader: "Inkapane",
+                legalHeader: "Temtsetfo",
+                contactHeader: "Tintsintsane natsi",
+                testSafety: '"I-FM Growth Labs ishshintshe indlela lesitfola ngayo batsengi nendlela lesibonakala ngayo e-Ireland."',
+                testMMM: '"Kusheshisa kukhula kwemhlaba wonke ngekuhlunga kahle lokudzingekako kanye nekushintshisana ngetheknoloji."'
+            },
+            sw: {
+                motto: "Ukuaji unaoendeshwa na teknolojia <i>na</i> mguso wa kibinadamu",
+                heroTitle: "Ongezeka kwa Kasi ya <span style='color: #00f2ff'>Ubunifu.</span>",
+                heroDesc: "Sura ya teknolojia ya biashara yako. Hatupati tu wateja—tunafunga mauzo.",
+                partnerBtn: "Shiriki nasi",
+                auditTitle: "Omba Ukaguzi wa Ukuaji",
+                auditDesc: "Kamilisha utambuzi huu mfupi ili tuweze kuandaa ramani yako ya ukuaji.",
+                labelRevRange: "Mapato ya sasa ya mwezi (E)",
+                labelEmployees: "Idadi ya Sasa ya Wafanyakazi",
+                labelBottleneck: "Kizuizi Kikubwa cha Ukuaji",
+                optLeads: "Kupata Wateja Wapya",
+                optClosing: "Kufunga Mauzo / Ubadilishaji",
+                optVisibility: "Kuonekana Mtandaoni na Chapa",
+                labelEmail: "Barua pepe ya Biashara",
+                btnAudit: "Chambua Faida Zangu Zilizofichwa",
+                calcTitle: "Kikokotoo cha Uwezo wa Ukuaji",
+                calcDesc: "Kadiria kiasi ambacho FM Growth Labs inaweza kuongeza kwenye mauzo yako.",
+                labelRev: "Mapato ya sasa ya mwezi (E)",
+                labelGrowth: "Ukuaji unaohitajika (%)",
+                resMonthly: "Ongezeko la mwezi",
+                resAnnual: "Athari ya mwaka",
+                locHeader: "Maeneo",
+                resHeader: "Rasilimali",
+                compHeader: "Kampuni",
+                legalHeader: "Sheria",
+                contactHeader: "Wasiliana nasi",
+                testSafety: '"FM Growth Labs ilibadilisha upatikanaji wetu wa wateja na kuonekana kwetu kote Ireland."',
+                testMMM: '"Kuharakisha ukuaji wa kimataifa kupitia utambulisho sahihi wa soko na automatisering ya mauzo."'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-selector span').forEach(el => el.classList.remove('active'));
+            if(event) event.target.classList.add('active');
+
+            document.getElementById('motto-text').innerHTML = translations[lang].motto;
+            document.getElementById('hero-title').innerHTML = translations[lang].heroTitle;
+            document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
+            document.getElementById('test-safetysquad').innerText = translations[lang].testSafety;
+            document.getElementById('test-mmm').innerText = translations[lang].testMMM;
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(translations[lang][key]) el.innerText = translations[lang][key];
+            });
+
+            calculate();
+        }
+
+        function calculate() {
+            const rev = document.getElementById('revenue').value;
+            const growth = document.getElementById('growth').value;
+            const increase = (rev * (growth / 100));
+            document.getElementById('increase').innerText = 'E' + Math.round(increase).toLocaleString();
+            document.getElementById('annual').innerText = 'E' + Math.round(increase * 12).toLocaleString();
+        }
+    </script>
+</body>
+</html>
